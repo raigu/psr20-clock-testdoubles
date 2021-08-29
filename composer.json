@@ -1,6 +1,6 @@
 {
     "name": "raigu/psr20-clock-testdoubles",
-    "description": "Test Doubles for PSR-2 clock interface",
+    "description": "Test Doubles for PSR-20 clock interface",
     "type": "library",
     "license": "MIT",
     "authors": [
