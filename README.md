@@ -6,8 +6,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-# psr20-clock-testdoubles
-
 Test Doubles for PSR-20 clock
 
 Unstable because the PSR-20 is not officially released yet.
