@@ -5,6 +5,10 @@ namespace Raigu\TestDouble\Psr20;
 use DateTimeImmutable;
 use Psr\Clock\ClockInterface;
 
+/**
+ * I am a frozen clock.
+ * I return constant time.
+ */
 final class FrozenClock implements ClockInterface
 {
     private DateTimeImmutable $now;
