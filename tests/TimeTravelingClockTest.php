@@ -4,6 +4,8 @@ namespace Raigu\TestDouble\Psr20;
 
 /**
  * @covers \Raigu\TestDouble\Psr20\TimeTravelingClock
+ * @uses \Raigu\TestDouble\Psr20\FrozenClock
+ * @uses \Raigu\TestDouble\Psr20\DefaultClock
  */
 final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
 {
