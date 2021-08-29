@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53eb5f8a39b2f21954c1eae2c8f98cc8",
+    "content-hash": "3cbf4409a16f671e679418ff6f3c1799",
     "packages": [
         {
             "name": "psr/clock",
