@@ -48,7 +48,7 @@ $clock = new \Raigu\TestDouble\Psr20\FrozenClock($moment);
 assert($moment->getTimestamp() === $clock->now()->getTimestamp());
 ```
 
-# TimeTravellingClock
+## TimeTravellingClock
 
 
 ```php
