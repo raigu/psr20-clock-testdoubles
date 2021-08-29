@@ -1,0 +1,15 @@
+{
+    "name": "raigu/psr20-clock-testdoubles",
+    "description": "Test Doubles for PSR-2 clock interface",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rait Kapp",
+            "email": "3442567+raigu@users.noreply.github.com"
+        }
+    ],
+    "provide": {
+    },
+    "require": {}
+}
