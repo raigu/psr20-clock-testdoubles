@@ -4,15 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c47b04166ba7b8c01ffc6c1c9b62f1d",
-    "packages": [],
+    "content-hash": "cbece6479a47ff152548c1e3c5d10590",
+    "packages": [
+        {
+            "name": "psr/clock",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/clock.git",
+                "reference": "90c0cc32214095d829947dd6811c014581d4c407"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/clock/zipball/90c0cc32214095d829947dd6811c014581d4c407",
+                "reference": "90c0cc32214095d829947dd6811c014581d4c407",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Clock\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "[WIP] Not yet proposed Common interface for reading the clock. Might change at any time without prior notice!",
+            "homepage": "https://github.com/php-fig/clock",
+            "keywords": [
+                "clock",
+                "now",
+                "psr",
+                "psr-20",
+                "time"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/clock/tree/master",
+                "issues": "https://github.com/php-fig/clock/issues"
+            },
+            "time": "2021-07-26T03:41:58+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "psr/clock": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.4||^8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

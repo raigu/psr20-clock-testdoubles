@@ -10,6 +10,16 @@
         }
     ],
     "provide": {
+        "psr/clock-implementation": "1.0-dev"
     },
-    "require": {}
+    "require": {
+        "php": "^7.4||^8.0",
+        "psr/clock": "@dev"
+    },
+    "repositories": {
+        "dev": {
+            "type": "github",
+            "url": "https://github.com/php-fig/clock"
+        }
+    }
 }
