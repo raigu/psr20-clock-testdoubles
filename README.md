@@ -10,6 +10,8 @@
 
 Test Doubles for PSR-20 clock
 
+Unstable because the PSR-20 is not officially released yet.
+
 # Compatibility
 
 * PHP 7.4, ^8.0
