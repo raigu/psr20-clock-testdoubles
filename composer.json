@@ -12,6 +12,16 @@
     "provide": {
         "psr/clock-implementation": "1.0-dev"
     },
+    "autoload": {
+        "psr-4": {
+            "Raigu\\TestDouble\\Psr20\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Raigu\\TestDouble\\Psr20\\": "tests/"
+        }
+    },
     "require": {
         "php": "^7.4||^8.0",
         "psr/clock": "@dev"
