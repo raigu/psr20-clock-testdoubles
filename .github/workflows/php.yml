@@ -29,6 +29,10 @@ jobs:
       run: |
         XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover=./coverage.xml
 
+    - name: Run mutation tests
+      run: |
+        XDEBUG_MODE=coverage ./vendor/bin/infection --min-msi=100 --min-covered-msi=100 --threads=3
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
