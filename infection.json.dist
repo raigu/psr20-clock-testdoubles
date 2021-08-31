@@ -6,5 +6,10 @@
     },
     "mutators": {
         "@default": true
+    },
+    "logs": {
+        "badge": {
+            "branch": "add-mutaltion-testing"
+        }
     }
 }
