@@ -2,6 +2,8 @@
 
 namespace Raigu\TestDouble\Psr20;
 
+use DateTimeImmutable;
+
 /**
  * @covers \Raigu\TestDouble\Psr20\TimeTravelingClock
  * @uses \Raigu\TestDouble\Psr20\FrozenClock
@@ -13,7 +15,7 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function by_default_uses_system_clock_as_base_clock()
+    public function by_default_uses_system_clock_as_base_clock(): void
     {
         $sut = new TimeTravelingClock;
         $first = $sut->now()->getTimestamp();
@@ -26,11 +28,11 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function clock_can_be_given()
+    public function clock_can_be_given(): void
     {
         $sut = new TimeTravelingClock(
             new FrozenClock(
-                $moment = \DateTimeImmutable::createFromFormat(DATE_ATOM, '2500-01-02T03:15:45-07:00')
+                $moment = new DateTimeImmutable('2500-01-02')
             )
         );
         $this->assertEquals(
@@ -42,11 +44,11 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function travels_in_time_to_the_future()
+    public function travels_in_time_to_the_future(): void
     {
         $sut = new TimeTravelingClock(new FrozenClock);
         $sut->travelInTime(
-            $expected = \DateTimeImmutable::createFromFormat(DATE_ATOM, '2500-01-02T03:15:45-07:00')
+            $expected = new DateTimeImmutable('2500-01-02')
         );
 
         $this->assertEquals(
@@ -58,11 +60,11 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function travels_in_time_to_the_past()
+    public function travels_in_time_to_the_past(): void
     {
         $sut = new TimeTravelingClock(new FrozenClock);
         $sut->travelInTime(
-            $expected = \DateTimeImmutable::createFromFormat(DATE_ATOM, '1979-01-02T03:15:45-07:00')
+            $expected = new DateTimeImmutable('1979-01-02')
         );
 
         $this->assertEquals(
@@ -74,11 +76,11 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function travels_in_time_by_interval()
+    public function travels_in_time_by_interval(): void
     {
         $sut = new TimeTravelingClock(
             new FrozenClock(
-                $moment = \DateTimeImmutable::createFromFormat(DATE_ATOM, '2500-01-02T03:15:45-07:00')
+                $moment = new DateTimeImmutable
             )
         );
         $sut->travelInTimeByInterval(new \DateInterval('P1D'));
@@ -92,11 +94,11 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function can_travel_in_time_by_interval_multiple_times()
+    public function can_travel_in_time_by_interval_multiple_times(): void
     {
         $sut = new TimeTravelingClock(
             new FrozenClock(
-                $moment = \DateTimeImmutable::createFromFormat(DATE_ATOM, '2500-01-02T03:15:45-07:00')
+                $moment = new DateTimeImmutable('2500-01-02')
             )
         );
         $sut->travelInTimeByInterval(new \DateInterval('P1D'));
@@ -111,9 +113,9 @@ final class TimeTravelingClockTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function travels_in_time_by_interval_to_the_past()
+    public function travels_in_time_by_interval_to_the_past(): void
     {
-        $current = new \DateTimeImmutable;
+        $current = new DateTimeImmutable;
         $sut = new TimeTravelingClock(
             new FrozenClock(
                 $current

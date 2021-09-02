@@ -12,7 +12,7 @@ final class DefaultClockTest extends TestCase
     /**
      * @test
      */
-    public function returns_current_system_time()
+    public function returns_current_system_time(): void
     {
         $sut = new DefaultClock;
         $this->assertEquals(

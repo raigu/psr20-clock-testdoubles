@@ -25,6 +25,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Run static analyser
+      run: composer analyse
+
     - name: Run tests
       run: |
         XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover=./coverage.xml
