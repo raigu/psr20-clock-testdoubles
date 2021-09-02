@@ -10,7 +10,7 @@ use Psr\Clock\ClockInterface;
  * I am time traveling clock.
  * I keep the time shift and add or subtract it behind the scenes.
  */
-final class TimeTravelingClock implements ClockInterface
+final class TimeTravelClock implements ClockInterface
 {
 
     private DateInterval $shift;

@@ -42,16 +42,16 @@ $clock = new \Raigu\TestDouble\Psr20\FrozenClock(
 );
 ```
 
-## TimeTravellingClock
+## TimeTravelClock
 
-Clock that acts like normal clock but has a shift in time if given. 
+Clock that acts like normal clock but has a shift in time if given.
 
 ```php
 // By default, acts like normal clock. 
-$clock = new \Raigu\TestDouble\Psr20\TimeTravelingClock();
+$clock = new \Raigu\TestDouble\Psr20\TimeTravelClock();
 $moment = $clock->now();
 sleep(2);
-// after two seconds the TimeTravellingClock is also moved forward.
+// after two seconds the TimeTravelClock is also moved forward.
 assert($moment->add(new DateInterval('PT2S'))->getTimestamp() === $clock->now()->getTimestamp());
 
 // Moving to the specific date and time in the future or past:
@@ -67,14 +67,14 @@ $clock->travelInTimeByInterval(\DateInterval::createFromDateString('-1 day'));
 assert($clock->now()->format('Y-m-d') === '2020-01-11');
 ```
 
-The `TimeTravellingClock` implements the Decorator pattern by wrapping 
+The `TimeTravelClock` implements the Decorator pattern by wrapping 
 a clock implementation. By default, it uses a system clock implementation, 
 but it can be replaced in constructor.
 
-For example, it is possible to create TimeTravelingClock that is frozen by using `FrozenClock`:
+For example, it is possible to create TimeTravelClock that is frozen by using `FrozenClock`:
 
 ```php
-$clock = new \Raigu\TestDouble\Psr20\TimeTravelingClock(
+$clock = new \Raigu\TestDouble\Psr20\TimeTravelClock(
     new Raigu\TestDouble\Psr20\FrozenClock()
 );
 $moment = $clock->now();
