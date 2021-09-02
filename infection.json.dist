@@ -9,7 +9,7 @@
     },
     "logs": {
         "badge": {
-            "branch": "add-mutaltion-testing"
+            "branch": "main"
         }
     }
 }
