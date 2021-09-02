@@ -32,6 +32,8 @@ jobs:
     - name: Run mutation tests
       run: |
         XDEBUG_MODE=coverage ./vendor/bin/infection --min-msi=100 --min-covered-msi=100 --threads=3
+      env:
+        STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
