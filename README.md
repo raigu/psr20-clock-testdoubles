@@ -3,6 +3,7 @@
 [![Fallows SemVer](https://img.shields.io/badge/SemVer-2.0.0-green)](https://semver.org/spec/v2.0.0.html)
 [![build](https://github.com/raigu/psr20-clock-testdoubles/workflows/build/badge.svg)](https://github.com/raigu/psr20-clock-testdoubles/actions)
 [![codecov](https://codecov.io/gh/raigu/psr20-clock-testdoubles/branch/main/graph/badge.svg?token=9DD044TN72)](https://codecov.io/gh/raigu/psr20-clock-testdoubles)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fraigu%2Fpsr20-clock-testdoubles%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/raigu/psr20-clock-testdoubles/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
