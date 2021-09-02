@@ -13,7 +13,7 @@ final class FrozenClockTest extends TestCase
     /**
      * @test
      */
-    public function returns_always_same_time()
+    public function returns_always_same_time(): void
     {
         $sut = new FrozenClock;
         $first = $sut->now()->getTimestamp();
@@ -25,9 +25,10 @@ final class FrozenClockTest extends TestCase
     /**
      * @test
      */
-    public function datetime_can_be_given()
+    public function datetime_can_be_given(): void
     {
         $moment = \DateTimeImmutable::createFromFormat(DATE_ATOM, '2021-01-02T03:15:45-07:00');
+        assert($moment !== false);
         $sut = new FrozenClock($moment);
         sleep(1);
         $this->assertEquals($moment->getTimestamp(), $sut->now()->getTimestamp());
@@ -36,7 +37,7 @@ final class FrozenClockTest extends TestCase
     /**
      * @test
      */
-    public function given_datetime_is_handled_as_immutable()
+    public function given_datetime_is_handled_as_immutable(): void
     {
         $mutableMoment = new DateTime;
         $expected = $mutableMoment->getTimestamp();

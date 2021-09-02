@@ -21,7 +21,7 @@ final class TimeTravelingClock implements ClockInterface
         return $this->clock->now()->add($this->shift);
     }
 
-    public function travelInTime(DateTimeImmutable $dateTime)
+    public function travelInTime(DateTimeImmutable $dateTime): void
     {
         $this->shift = $this->clock->now()->diff($dateTime);
     }
