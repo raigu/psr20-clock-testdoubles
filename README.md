@@ -33,29 +33,29 @@ $ composer require --dev raigu/psr20-clock-testdoubles
 Clock frozen in time. It always returns the same time now matter how many times the `now` is called.
 
 ```php
+// creating with current system date and time
 $clock = new \Raigu\TestDouble\Psr20\FrozenClock;
-$moment = \DateTimeImmutable::createFromFormat('Y-m-d', '2020-01-02');
-$clock = new \Raigu\TestDouble\Psr20\FrozenClock($moment);
+
+// creating with predefined date and time at
+$clock = new \Raigu\TestDouble\Psr20\FrozenClock(
+    new \DateTimeImmutable('2020-01-02')
+);
 ```
-
-If the date and time is not given in constructor then current time is used.
-
 
 ## TimeTravellingClock
 
 Clock that acts like normal clock but has a shift in time if given. 
 
 ```php
+// By default, acts like normal clock. 
 $clock = new \Raigu\TestDouble\Psr20\TimeTravelingClock();
 $moment = $clock->now();
 sleep(2);
 // after two seconds the TimeTravellingClock is also moved forward.
 assert($moment->add(new DateInterval('PT2S'))->getTimestamp() === $clock->now()->getTimestamp());
 
-// Moving to the specific date and time in future or past:
-$clock->travelInTime(
-    \DateTimeImmutable::createFromFormat('Y-m-d', '2020-01-02')
-);
+// Moving to the specific date and time in the future or past:
+$clock->travelInTime(new \DateTimeImmutable('2020-01-02'));
 assert($clock->now()->format('Y-m-d') === '2020-01-02');
 
 // Move by the specific interval to the future
@@ -63,16 +63,19 @@ $clock->travelInTimeByInterval(new DateInterval('P10D'));
 assert($clock->now()->format('Y-m-d') === '2020-01-12');
 
 // Move by the specific interval to the past
-$sut->travelInTimeByInterval(\DateInterval::createFromDateString('-1 day'));
+$clock->travelInTimeByInterval(\DateInterval::createFromDateString('-1 day'));
 assert($clock->now()->format('Y-m-d') === '2020-01-11');
 ```
 
-The `TimeTravellingClock` depends on an internal clock which can be replaced by any clock.
-For example by `FrozenClock`:
+The `TimeTravellingClock` implements the Decorator pattern by wrapping 
+a clock implementation. By default, it uses a system clock implementation, 
+but it can be replaced in constructor.
+
+For example, it is possible to create TimeTravelingClock that is frozen by using `FrozenClock`:
 
 ```php
 $clock = new \Raigu\TestDouble\Psr20\TimeTravelingClock(
-    new Raigu\TestDouble\Psr20\FrozenClock
+    new Raigu\TestDouble\Psr20\FrozenClock()
 );
 $moment = $clock->now();
 sleep(2);
