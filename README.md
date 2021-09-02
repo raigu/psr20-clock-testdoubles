@@ -38,7 +38,7 @@ $clock = new \Raigu\TestDouble\Psr20\FrozenClock;
 
 // creating with predefined date and time at
 $clock = new \Raigu\TestDouble\Psr20\FrozenClock(
-    new \DateTimeImmutable('2020-01-02')
+    new DateTimeImmutable('2020-01-02')
 );
 ```
 
@@ -55,7 +55,7 @@ sleep(2);
 assert($moment->add(new DateInterval('PT2S'))->getTimestamp() === $clock->now()->getTimestamp());
 
 // Moving to the specific date and time in the future or past:
-$clock->travelInTime(new \DateTimeImmutable('2020-01-02'));
+$clock->travelInTime(new DateTimeImmutable('2020-01-02'));
 assert($clock->now()->format('Y-m-d') === '2020-01-02');
 
 // Move by the specific interval to the future
@@ -63,7 +63,7 @@ $clock->travelInTimeByInterval(new DateInterval('P10D'));
 assert($clock->now()->format('Y-m-d') === '2020-01-12');
 
 // Move by the specific interval to the past
-$clock->travelInTimeByInterval(\DateInterval::createFromDateString('-1 day'));
+$clock->travelInTimeByInterval(DateInterval::createFromDateString('-1 day'));
 assert($clock->now()->format('Y-m-d') === '2020-01-11');
 ```
 
@@ -79,7 +79,7 @@ $clock = new \Raigu\TestDouble\Psr20\TimeTravelClock(
 );
 $moment = $clock->now();
 sleep(2);
-assert($moment->getTimestamp() === $clock->getTimestamp(), 'Because base clock is frozen the time traveling clock does not tick');
+assert($moment->getTimestamp() === $clock->getTimestamp(), 'Does not tick because base clock is frozen.');
 ```
 
 # Testing
